@@ -1,6 +1,9 @@
 #Git in depth
 
 Source: https://frontendmasters.com/courses/git-in-depth/
+
+Subtitle : https://github.com/azharuddinarrosis/class-mw/tree/master/git-in-depth/source
+
 Learning objectives: understand the concept of using git properly and correctly
 
 ➤ What is Git? `Distributed Version Control System`
@@ -37,19 +40,21 @@ Three areas where code lives : working area (or sometimes called as working tree
 
 	 -  HEAD    
 
-		What is HEAD? HEAD is how Git knows what branch you're currently on. But most importantly, HEAD is how Git knows what the parent of the next commit will be. It's kind of effectively a sim link to the branch that you're currently working on.
+	What is HEAD? HEAD is how Git knows what branch you're currently on. But most importantly, HEAD is how Git knows what the parent of the next commit will be. It's kind of effectively a sim link to the branch that you're currently working on.
 
-			How to check reference 
+	How to check reference 
 
-				You can check in this file `.git/HEAD `
+	You can check in this file `.git/HEAD `
 
 	 -  Tag   
 
-			One of the other types of refs that we can have is a lightweight tag. Those are just a simple pointer to a commit
+	One of the other types of refs that we can have is a lightweight tag. Those are just a simple pointer to a commit
 
-			Create new tag `git tag -a`
-			Show all tag ` git show-ref –tags`
-	 -  Remotes    
+	Create new tag `git tag -a`
+	
+	Show all tag ` git show-ref –tags`
+	
+	-  Remotes    
 
 		The third type of reference that you’ll see is a remote reference. If you add a remote and push to it, Git stores the value you last pushed to that remote for each branch in the refs/remotes directory. For instance, you can add a remote called origin and push your master branch to it
 
@@ -159,73 +164,77 @@ If <upstream> is not specified, the upstream configured in branch.<name>.remote 
 
 Fork 
 
-- 	The concept of forking a project has existed for decades in the world of free and open source software. To "fork" means to copy a project, change its name, and create a project and community with the copy. People who fork rarely contribute back to the main project.
+- The concept of forking a project has existed for decades in the world of free and open source software. To "fork" means to copy a project, change its name, and create a project and community with the copy. People who fork rarely contribute back to the main project.
 
 Remote Repositories
--		 When we have a project, of course we want to keep all the files in it. Also, you can still edit or add new files in your project without worry, by tracking the changes you make.
+- When we have a project, of course we want to keep all the files in it. Also, you can still edit or add new files in your project without worry, by tracking the changes you make.
 
--		 Using git is very helpful, but the repository is stored on our own local computer. Then what if there is an unexpected incident with our computer, I hope it never happens. But it will be very safe if we use hosting for our project, besides being safe we can also access it anywhere.
+- Using git is very helpful, but the repository is stored on our own local computer. Then what if there is an unexpected incident with our computer, I hope it never happens. But it will be very safe if we use hosting for our project, besides being safe we can also access it anywhere.
 
 
 
 ➤ The Danger Zone
 
--				danger zone where you can tell all the code if you use git wrong, therefore you have to make a config that will keep the code stable,
+- danger zone where you can tell all the code if you use git wrong, therefore you have to make a config that will keep the code stable,
 
 ➤ Advanced Tools
 
 ➤ Customization - Config, Ignore, Hooks, Templates
 1. Config 
 
-	-			 You typically configure your global username and email address after installing Git. However, you can do so now if you missed that step or want to make changes. After you set your global configuration, repository-specific configuration is optional.
+	- You typically configure your global username and email address after installing Git. However, you can do so now if you missed that step or want to make changes. After you set your global configuration, repository-specific configuration is optional.
 	
-			Git configuration works the same across Windows, macOS, and Linux.
+		Git configuration works the same across Windows, macOS, and Linux.
 
-		-				**To set your global username/email configuration**
+		- **To set your global username/email configuration**
 
-						1.	Open the command line.
+			1. Open the command line.
 						
-						2.	Set your username:
-						`git config --global user.name "FIRST_NAME LAST_NAME"`
+			2. Set your username:
+			
+				`git config --global user.name "FIRST_NAME LAST_NAME"`
 						
-						2.	Set your email address:
-						`git config --global user.email "MY_NAME@example.com"`
+			3. Set your email address:
+				`git config --global user.email "MY_NAME@example.com"`
 						
-		-				**To set repository-specific username/email configuration:**
-						1.	From the command line, change into the repository directory.
+		- **To set repository-specific username/email configuration:**
+			
+			1. From the command line, change into the repository directory.
 
-						2.	Set your username:
-						`git config user.name "FIRST_NAME LAST_NAME"`
+			2. Set your username:
+			
+				`git config user.name "FIRST_NAME LAST_NAME"`
 
-						3.	Set your email address:
-						`git config user.email "MY_NAME@example.com"`
+			3. Set your email address:
+			
+				`git config user.email "MY_NAME@example.com"`
 
-						3.	Verify your configuration by displaying your configuration file: cat `.git/config`
+			4. Verify your configuration by displaying your configuration file: cat `.git/config`
 	
 2. Ignore
 
-	-			 Git sees every file in your working copy as one of three things:
-			1.		tracked - a file which has been previously staged or committed;
-			2.		untracked - a file which has not been staged or committed; or
-			3.		ignored - a file which Git has been explicitly told to ignore.
+	- Git sees every file in your working copy as one of three things:
+			1. tracked - a file which has been previously staged or committed;
+			2. untracked - a file which has not been staged or committed; or
+			3. ignored - a file which Git has been explicitly told to ignore.
 
-		Ignored files are tracked in a special file named .gitignore that is checked in at the root of your repository. There is no explicit git ignore command: instead the .gitignore file must be edited and committed by hand when you have new files that you wish to ignore. .gitignore files contain patterns that are matched against file names in your repository to determine whether or not they should be ignored.
+	Ignored files are tracked in a special file named .gitignore that is checked in at the root of your repository. There is no explicit git ignore command: instead the .gitignore file must be edited and committed by hand when you have new files that you wish to ignore. .gitignore files contain patterns that are matched against file names in your repository to determine whether or not they should be ignored.
 		
 3. Hooks
 
-	-			 Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Git's internal behavior and trigger customizable actions at key points in the development life cycle.
+	- Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Git's internal behavior and trigger customizable actions at key points in the development life cycle.
 
 4. Templates  
 
-	-			 Templates in Git are the starting files and settings for all new Git repositories. Any files not starting with a dot (hidden files) will be copied to the new Git repository upon initialization. 
+	- Templates in Git are the starting files and settings for all new Git repositories. Any files not starting with a dot (hidden files) will be copied to the new Git repository upon initialization. 
 
 
 ➤  Integrating Git 
--					 there are several tools that can be integrated with git, for example
+- there are several tools that can be integrated with git, for example
 github action, circleCI and others
 
 ➤  Git Rerere
--					 Git Rerere, which stands for Reuse Recorded Resolution is a really, really helpful tool.What it does is when it's turned on, git's gonna save how you resolved a conflict. And next conflict, it's just gonna reuse that same resolution. It's really useful for things like a long lived feature branch, like a refactor, or when you're rebasing. Has anyone tried a rebase, and then every time you rebase,
+- Git Rerere, which stands for Reuse Recorded Resolution is a really, really helpful tool.What it does is when it's turned on, git's gonna save how you resolved a conflict. And next conflict, it's just gonna reuse that same resolution. It's really useful for things like a long lived feature branch, like a refactor, or when you're rebasing. Has anyone tried a rebase, and then every time you rebase,
 
 
 
