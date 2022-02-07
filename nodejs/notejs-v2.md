@@ -196,3 +196,39 @@ No matter what company you're at or the app, you'll work with these three comman
 
 
 [Finding and installing packages] (https://www.npmjs.com/)
+
+
+## CLIs & Servers
+
+A CLI, or command line interface is a program desgined to start and complete one off tasks. Like git or npm. Node.js is a perfect runtime to create a CLI that will run on any machine that has Node.js isntalled.
+
+### Creating a CLI
+Creating a CLI in Node.js just takes a extra step or two because they are really just an ordinary Node.js app wrapped behind a bin command. For this exercise, we'll create a CLI that opens a random reddit post in our browser. To start, we'll create a new folder and make it a package with npm init.
+
+Once inside that folder, create a file reddit.mjs:
+
+    // reddit.mjs
+    #! /usr/bin/env node
+
+console.log('hello from your CLI')
+The fist line on that file is called a shabang or hashbang. It's needed to tell the machine where the interpreter is located that is needed to execute this file. For us, that will be Node.js.
+
+Next we need to tell Node.js what the name of our CLI is so when can actually use it in our terminal. Just have to add a section to our package.json:
+
+    "bin": {
+    "reddit": "./reddit.mjs"
+    }
+
+Once installed, this package will have it's bin command installed into your machine's bin folder allowing us to use the reddit command.
+
+Lastly, we must install our own package locally so we can test out the CLI. We could just execute the file with the node runtime, but we want to see the CLI actually work.
+
+`npm install -g`
+
+We can simply instll with no args which tells npm to install the current director. The `-g` flag means we want to globally install this package vs in a local node_modules.
+
+You should now be able to run `reddit` and see your log print.
+
+## Servers
+
+Node.js has access to OS level functionality, like networking tools. This allows us to build very capable servers. Mixed with the fact that Node.js is single threaded and runs an even loop for async tasks, Node.js is widely used for API's that need to respond fast and don't require heavy CPU intensive work.
